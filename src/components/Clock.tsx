@@ -12,7 +12,7 @@ const styles = makeStyles({
 const Clock = () => {
 
     const classes = styles();
-    const list = ["hello this is a test with a very long sentence"];
+    const list = ["hello this is a test", "another string"];
 
     return (
         <div className={classes.root}>
