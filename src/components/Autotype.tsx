@@ -24,7 +24,10 @@ const Autotype = (props: PropInterface) => {
     }, [list, index, timer, char]);
 
     return (
-        <span>{substr}</span>
+        <div>
+        <span id="autotype">{substr}</span>
+        <span className="blink">|</span>
+        </div>
     )
 }
 
