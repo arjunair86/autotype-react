@@ -19,7 +19,7 @@ const Clock = () => {
             <Grid container alignItems="center" justify="center" style={{ minHeight: "80vh" }}>
                 <Grid item>
                     <Typography variant="h1" component="h1">
-                        <Autotype list={list}/>
+                        <Autotype list={list} loop={false}/>
                     </Typography>
                 </Grid>
             </Grid>

@@ -1,11 +1,13 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 interface PropInterface {
-    list: Array<string>
+    list: Array<string>,
+    loop?: boolean
 }
 
 const Autotype = (props: PropInterface) => {
     const list = useMemo(() => [...props.list], [props.list]);
+    const loop = props.loop??true;
     const [substr, setSubstr] = useState("");
     const [char, setChar] = useState(0);
     const [deleting, setDeleting] = useState(0);
@@ -37,6 +39,11 @@ const Autotype = (props: PropInterface) => {
         }
         else {
             console.log("running insert");
+            if(!loop && index === list.length-1 && char === list[index].length) {
+                setDeleting(0);
+                return;
+            }
+
             if(char === list[index].length) {
                 setDeleting(1);
                 return;
@@ -47,7 +54,7 @@ const Autotype = (props: PropInterface) => {
                 clearInterval(id);
             }
         }
-    }, [list, index, timer, timer2, deleting, char]);
+    }, [list, index, timer, timer2, deleting, char, loop]);
 
     return (
         <div>
